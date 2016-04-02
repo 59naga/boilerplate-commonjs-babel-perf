@@ -5,9 +5,9 @@
   ],
   "scripts": {
     "start": "abby compile, watch:*",
-    "watch:raw": "abby mocha --log --watch lib/**/*.js,spec/**/*.js",
-    "watch:src": "cd src && babel '**/*.js' --out-dir ../lib --watch '**/*.js'",
-    "watch:test": "cd test && babel '**/*.js' --out-dir ../spec --watch '**/*.js'",
+    "watch:raw": "abby mocha --log --watch",
+    "watch:src": "babel src --out-dir lib --watch",
+    "watch:test": "babel test --out-dir spec --watch",
     "compile": "babel -V && babel src --out-dir lib && babel test --out-dir spec",
     "test": "abby compile, mocha",
     "mocha": "mocha 'spec/**/*.js'",
@@ -27,12 +27,12 @@
       "log": false,
       "watch": {
         "enable": false,
-        "lazy": true
+        "watch": ["lib/**/*.js", "spec/**/*.js"]
       }
     }
   },
   "devDependencies": {
-    "abigail": "^1.3.1",
+    "abigail": "^1.3.3",
     "babel-cli": "^6.6.5",
     "babel-eslint": "^6.0.2",
     "babel-plugin-add-module-exports": "^0.1.2",
